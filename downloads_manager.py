@@ -10,6 +10,8 @@ custom_folders_for_extensions: dict[str,str] = {
 }
 # This desides if non especified extensions should go the their extension folder
 move_to_extension_folder : bool = True
+#Acces rights
+access_rights = 0o755
 
 downloads_folder: str = os.path.expanduser('~') + '\\Downloads'
 # Change this if you want the final folders in another folder
@@ -20,7 +22,7 @@ def move_file(file_path,file_name,dest_folder):
     if os.path.isdir(dest_folder) and not os.path.isfile(dest_folder):
         shutil.move(file_path,dest_folder + '\\' + file_name )
     elif not os.path.isfile(dest_folder) and not os.path.isdir(dest_folder) :
-        os.mkdir(dest_folder)
+        os.mkdir(dest_folder,access_rights)
         shutil.move(file_path,dest_folder + '\\' + file_name )
 
 for file in os.listdir(downloads_folder):

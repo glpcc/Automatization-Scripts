@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Change the url to the raw version of the file
+raw_url=$(echo $1 | sed 's/github/raw.githubusercontent/' | sed 's|/blob/|/|')
+# Get the filename form the url
+if [ -z "$2" ]
+then
+    filename=$(echo $raw_url | awk -F/ '{print $NF}')
+else
+    filename=$2
+fi
+# curl the filename text and save it to the apropiate filename
+curl --silent $raw_url > $filename

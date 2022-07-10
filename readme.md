@@ -2,6 +2,7 @@
 This is a repo for all my small automatization scripts
 
 # Usage
+It is recommended to add the automatization files/folder to your system path for using anywhere in your system
 ## Copy_github_file 
 Simply pass the github file link and the desired file name (*optional) if no filename is passed the original name in the repo will be used
 ### Example
